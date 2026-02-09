@@ -9,3 +9,33 @@
 :root {
   --size: 410px;
 }
+
+/* shape-outside 속성을 유틸리티 클래스로 추가 */
+@utility shape-circle {
+  shape-outside: circle(50%);
+}
+
+/* @apply 디렉티브 */
+
+/* @layer 규칙을 사용하여 components 레이어에 포함*/
+@layer components {
+  .card {
+    @apply min-w-min border rounded-lg px-6 py-4;
+
+    img {
+      @apply float-left shape-circle w-32 h-32 rounded-full mr-10;
+    }
+
+    p:nth-of-type(1) {
+      @apply text-slate-600 text-xl font-bold;
+    }
+
+    p:nth-of-type(2) {
+      @apply text-slate-400 font-semibold;
+    }
+
+    button {
+      @apply border px-2 py-1 rounded-3xl text-purple-500;
+    }
+  }
+}
